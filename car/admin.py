@@ -4,13 +4,14 @@ from .models import Car,Sell_Car,Price_Day
 
 @register(Car)
 class Car_Admin(ModelAdmin):
-    pass
+    search_fields =['brand']
+    search_fields =['model']
 
 
 @register(Sell_Car)
 class Sell_Car_Admin(ModelAdmin):
-    pass
+        list_display =['brand','model']
 
 @register(Price_Day)
 class Price_Day_Admin(ModelAdmin):
-    pass
+    list_display =['brand','model','price']

@@ -1,10 +1,5 @@
 from django.db import models
 
-class Car(models.Model):
-    search=models.CharField(max_length=250)
-    brand=models.CharField(max_length=250)
-    city=models.CharField(max_length=250)
-
 
 class Sell_Car(models.Model):
     brand=models.CharField(max_length=250)
@@ -13,7 +8,7 @@ class Sell_Car(models.Model):
     operation=models.CharField(max_length=250)
     color=models.CharField(max_length=100,null=True,blank=True)
     price=models.DecimalField(max_digits=8,decimal_places=2)
-    image=models.ImageField(null=False)
+    image=models.ImageField(null=False,)
     city=models.CharField(max_length=250)
     description=models.TextField(null=True, blank=True)
     
@@ -22,6 +17,11 @@ class Sell_Car(models.Model):
     
     class Meta:
         verbose_name = "Sell Car"
+
+
+class Car(models.Model):
+    search=models.ForeignKey(Sell_Car,on_delete=models.CASCADE)
+
 
 
 class Price_Day(models.Model):
