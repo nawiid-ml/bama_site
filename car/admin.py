@@ -5,7 +5,7 @@ from .models import Car,Sell_Car,Price_Day
 @register(Car)
 class Car_Admin(ModelAdmin):
     search_fields =['brand']
-    search_fields =['model']
+
 
 
 @register(Sell_Car)

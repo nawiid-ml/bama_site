@@ -34,9 +34,21 @@ class Retrieve_Car(generics.RetrieveAPIView):
     queryset = Sell_Car.objects.all()
     serializer_class=Sell_CarSerializer
 
+
 class View_Car(generics.ListCreateAPIView):
     queryset = Sell_Car.objects.all()
     serializer_class = Sell_CarSerializer
+
+
+class View_Price(generics.ListAPIView):
+    queryset =Price_Day.objects.all()
+    serializer_class = Price_DaySerializer
+
+
+class Create_Price_Car(generics.CreateAPIView):
+    queryset = Price_Day.objects.all()
+    serializer_class =Price_DaySerializer    
+
 
     
 

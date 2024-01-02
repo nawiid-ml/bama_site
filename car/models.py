@@ -12,6 +12,7 @@ class Sell_Car(models.Model):
     city=models.CharField(max_length=250)
     description=models.TextField(null=True, blank=True)
     
+    
     def __str__(self):
         return f"{self.brand}"
     
@@ -21,11 +22,12 @@ class Sell_Car(models.Model):
 
 class Car(models.Model):
     search=models.ForeignKey(Sell_Car,on_delete=models.CASCADE)
+    
 
 
 
 class Price_Day(models.Model):
     model=models.CharField(max_length=250)
     brand=models.CharField(max_length=250)
-    Price=models.DecimalField(max_digits=8,decimal_places=2)
+    price=models.DecimalField(max_digits=8,decimal_places=2)
     date=models.DateField(auto_now_add=True)
