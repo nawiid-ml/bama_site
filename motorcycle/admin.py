@@ -3,14 +3,15 @@ from .models import Motorcycle,Sell_Motorcycle,Motorcycle_Price
 
 @register(Motorcycle)
 class Motorcycle_Admin(ModelAdmin):
-    pass
+    search_fields =['brand']
 
 @register(Sell_Motorcycle)
 class Sell_Motorcycle_Admin(ModelAdmin):
-    pass
+    list_display=('brand','model')
+    
 
 @register(Motorcycle_Price)
 class Motorcycle_price(ModelAdmin):
-    pass
+    list_display = ['brand','model','price']
 
 

@@ -3,7 +3,7 @@ from .models import Car ,Sell_Car ,Price_Day
 from django.shortcuts import render
 from datetime import datetime
 import random
-from .serializers import CarSerializer,Sell_CarSerializer,Price_DaySerializer
+from .serializers import Sell_CarSerializer,Price_DaySerializer
 from rest_framework import generics
 
 

@@ -1,10 +1,5 @@
 from django.db import models
 
-class Motorcycle(models.Model):
-    search=models.CharField(max_length=250)
-    brand=models.CharField(max_length=250)
-    city=models.CharField(max_length=250)
-
 
 class Sell_Motorcycle(models.Model):
     brand=models.CharField(max_length=250)
@@ -24,9 +19,13 @@ class Sell_Motorcycle(models.Model):
         verbose_name = "Sell Motorcycle"
 
 
-class   Motorcycle_Price(models.Model):
+class Motorcycle(models.Model):
+    search=models.ForeignKey(Sell_Motorcycle,on_delete=models.CASCADE)
+
+
+class Motorcycle_Price(models.Model):
     model=models.CharField(max_length=250)
     brand=models.CharField(max_length=250)
-    Price=models.DecimalField(max_digits=8,decimal_places=2)
+    price=models.DecimalField(max_digits=8,decimal_places=2)
     date=models.DateField(auto_now_add=True)
 
