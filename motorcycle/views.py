@@ -32,6 +32,8 @@ class Retrieve_Motorcycle(generics.RetrieveAPIView):
     queryset = Sell_Motorcycle.objects.all()
     serializer_class = Sell_MotorcycleSerializer()
 
+    
+
 
 class View_Motorcycle(generics.ListCreateAPIView):
     queryset = Sell_Motorcycle.objects.all()
