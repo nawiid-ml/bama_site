@@ -1,10 +1,11 @@
-from django.http.response import HttpResponse , JsonResponse
-from .models import Motorcycle , Sell_Motorcycle , Motorcycle_Price
-from django.shortcuts import render
-from datetime import datetime
-import random
-from .serializers import Sell_MotorcycleSerializer , Motorcycle_PriceSerializer
+from .models import  Sell_Motorcycle , Motorcycle_Price
+#from django.shortcuts import render
+from .serializers import Sell_MotorcycleSerializer , Motorcycle_PriceSerializer , UserSerializer 
 from rest_framework import generics
+from django.contrib.auth import get_user_model
+
+
+User = get_user_model()
 
 
 class List_Motorcycle(generics.ListAPIView):
@@ -23,9 +24,8 @@ class Update_Motorcycle(generics.UpdateAPIView):
 
 
 class Delete_Motorcycle(generics.DestroyAPIView):
-    Pk = Sell_Motorcycle.objects.get(pk=2)
     queryset = Sell_Motorcycle.objects.all()
-    serializer_class = Sell_MotorcycleSerializer(Pk)
+    serializer_class = Sell_MotorcycleSerializer()
 
 
 class Retrieve_Motorcycle(generics.RetrieveAPIView):
@@ -45,4 +45,6 @@ class View_Motorcycle_Price(generics.ListCreateAPIView):
     serializer_class = Motorcycle_PriceSerializer
 
 
-
+class User_List(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

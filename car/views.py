@@ -1,11 +1,10 @@
-from django.http.response import HttpResponse, JsonResponse
-from .models import Car ,Sell_Car ,Price_Day
-from django.shortcuts import render
-from datetime import datetime
-import random
-from .serializers import Sell_CarSerializer,Price_DaySerializer
+from .models import Sell_Car ,Price_Day
+#from django.shortcuts import render
+from .serializers import Sell_CarSerializer,Price_DaySerializer,UserSerializer
 from rest_framework import generics
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 
 class CarList(generics.ListAPIView):
@@ -48,6 +47,11 @@ class View_Price(generics.ListAPIView):
 class Create_Price_Car(generics.CreateAPIView):
     queryset = Price_Day.objects.all()
     serializer_class =Price_DaySerializer    
+
+
+class Users_List(generics.ListAPIView):
+     queryset = User.objects.all()
+     serializer_class = UserSerializer
 
 
     

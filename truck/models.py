@@ -1,7 +1,13 @@
 from django.db import models
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Sell_Truck(models.Model):
+    """
+    Model representing a car sold by the dealer. 
+    """
     brand=models.CharField(max_length=250)
     model = models.CharField(max_length=250)
     year = models.IntegerField()
@@ -11,7 +17,7 @@ class Sell_Truck(models.Model):
     image = models.ImageField(null=False)
     city = models.CharField(max_length=250)
     description = models.TextField(null=True, blank=True)
-    
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='sell_truck')
     def __str__(self):
         return f"{self.brand}"
     
